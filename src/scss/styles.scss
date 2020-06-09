@@ -1,0 +1,221 @@
+$colorBorder: #dadada;
+$colorBase: #e5bc00;
+$colorDark: #3f4043;
+$colorImportant: #b5121b;
+
+body {
+    background: #f3f3f3;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+body, form, div, p, a, img, h1, h2, h3, h4, h5, h6, table, table tr, table td {
+    border: none;
+    color: $colorDark;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+input,
+textarea,
+select {
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: underline;
+    outline: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.mainer {
+    max-width: 940px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.header {
+    background: url(./assets/header-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 0 0 55px 0;
+
+    .caption {
+        font-weight: bold;
+        font-size: 70px;
+        color: inherit;
+        line-height: 50px;
+        margin: 0 0 13px 0;
+    }
+
+    .sub-text {
+        font-size: 24px;
+        color: inherit;
+        margin:  0 0 20px 0;
+    }
+
+    .description {
+        font-weight: 200;
+        font-size: 22px;
+        color: inherit;
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    .header-movie-info {
+        text-align: center;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 700px;
+    }
+}
+
+.block-categories {
+    margin: 0 60px 65px 60px;
+    padding: 0 0 30px 0;
+    list-style: none;
+    display: flex;
+    border-bottom: 1px solid $colorBorder;
+    justify-content: space-between;
+
+    li {
+        position: relative;
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        text-transform: uppercase;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: $colorBase;
+            bottom: -32px;
+            left: 0;
+            transition-duration: 0.3s;
+        }
+
+        &.active,
+        &:hover {
+            color: $colorBase;
+
+            &:before {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.block-movies {
+    padding: 0;
+    margin: -10px -10px 50px -10px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        padding: 10px;
+        flex-grow: 1;
+        width: 260px;
+        box-sizing: border-box;
+        display: flex;
+
+        &.empty {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .card {
+        background-color: #fff;
+        position: relative;
+    }
+
+    .image {
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .wrapper {
+        padding: 20px;
+    }
+
+    .name {
+        font-weight: 600;
+        font-size: 17px;
+        text-transform: uppercase;
+        margin: 0 0 4px 0;
+    }
+
+    .category {
+        font-size: 13px;
+        font-weight: 500;
+        color: $colorBase;
+        margin: 0 0 8px 0;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    .rating-wrapper {
+        display: flex;
+        align-items: center;
+
+        .value {
+            font-weight: 500;
+            font-size: 20px;
+            margin: 0 0 0 13px;
+        }
+    }
+
+    .label {
+        background-color: $colorBase;
+        position: absolute;
+        top: 10px;
+        left: -10px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        border-radius: 0 10px 10px 0;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        color: $colorImportant;
+    }
+}
+
+.block-rating {
+    width: 109px;
+    background-image: url(./assets/rating-bg.png);
+    background-position: left bottom;
+
+    span {
+        display: block;
+        background-image: inherit;
+        background-position: left top;
+        height: 16px;
+    }
+}
