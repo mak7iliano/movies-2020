@@ -18,7 +18,7 @@
           v-for="genre in genresList"
           :key="genre.id"
           :class="{active: genre.id === gengeActiveId}"
-          @click="gengeActiveId = genre.id; getMovies(genre.id)"
+          @click="changeGenre(genre.id)"
         >{{genre.name}}</li>
       </ul>
 
@@ -29,6 +29,7 @@
             <div class="image">
               <img v-if="movie.poster_path" :src="imageUrl + movie.poster_path" alt />
               <img v-else src="./assets/no-poster.jpg" alt />
+              <div class="backdrop"></div>
             </div>
             <div class="wrapper">
               <div class="name">{{movie.title}}</div>
@@ -46,7 +47,14 @@
         <li class="empty"></li>
       </ul>
 
-      <button @click="moreMovies()">More : {{currentPage}}</button>
+      <div class="block-stepper">
+        <button class="show-more-btn" @click="moreMovies()">
+          <em></em>
+          <em></em>
+          <em></em>
+          <span v-text="currentPage" v-if="currentPage > 1"></span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -119,6 +127,12 @@ export default {
         result += this.genresListOriginal[index].name + ", ";
       }
       return result.slice(0, -2);
+    },
+    changeGenre(id) {
+      this.gengeActiveId = id;
+      this.moviesList = [];
+      this.currentPage = 1;
+      this.getMovies(id);
     }
   },
   created: function() {
